@@ -1,0 +1,48 @@
+need three columns, unique ID, temperature and trait response.
+the initial R script should add starting values based on the exponential part of the curve
+get the script running to start doing the cubic fits. use the lm function to fit the cubic to the data, not nlls.
+then nlls needs to fit the boltzmann/schoolfield to the data which will be hard
+which curves have evidence that the model fits properly?
+
+temp on the x asis and rate on the y axis
+doesnt matter whether we use the standard or original trait value, it wont change the shape of the curve
+use the cubic because it is curvy enough to fit the strange data shape. then take the log of the exponential part to straigten the line out
+look at the schoolfield paper, it has models fitted to data
+create a test output to just look at the ouput of one model
+final csv output should contain the unique values and fitted values
+then need to fit AIC and BIC to the datasets and say on average which model is most useful
+We can write the code in R if we feel like python is too hard to grasp, try to use python but R is acceptable
+
+READ THE SHARP SCHOOLFIELD PAPER and look at the log-transformed data with a line fitting through it
+
+can try choosing random starting values, dont be afraid to choose random ones cause it can be fixed later
+
+the deactivation energy part of the curve is steeper than the activation energy so De is greater than e
+e = 0.65
+Ed = 5 to 10 * e
+
+start the starting value lower than 0.65 in case the response is weaker than expected.
+fit the curves with 100 starting values and keep the one(s) that work, dont be afraid to use computing power!
+
+lots of data isn't good enough to fit the model so be prepared to discard ~20% of it
+
+B0 is the trait value at 10 degrees C. make sure which units youre using! convert all temperatures to Kelvins for NLLS. Celsius is okay for lm.
+
+B0 is the rate at a certain temperature, the rest of the equation goes to 1 at a certain temp and that is how we can see what B0 is.
+The data might not contain the value of B0 though.
+B0 can be chosen from runif to start with, use these to maximise the NLLS fit. B0 units are the same as the units of the trait value
+
+
+TH is the temp at which 50% of the enzymes are denatured due to high temp
+TL is the temp at which 50% of the enzymes cant work because its too cold
+TL must be lower than TH. All in Kelvins. TH must be in the region of the peak of the curve
+
+
+Even if the dataset only has the rising part, you can still fit the cubic to the data. It just wont give a sensible falling part.
+
+Write own schoolfield function to fit to one dataset. take a log of NLLS, its easier for it to converge if its logged.
+
+Also look at the NLLS EEC lectures Samraat added to our BlackBoard
+
+
+

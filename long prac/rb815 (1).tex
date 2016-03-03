@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage{authblk} % for adding affiliation
+\usepackage{setspace} % for double spaced lines
+\usepackage{lineno} % for line numbers
+
+\doublespacing % double spaced lines
+\title{\textbf{Title}} % add title
+\author[1]{Philip Se\\} % add name
+\affil[1]{Imperial College London} % add affiliation
+\date{} % can leave date blank, but don't remove this line
+
+% command to count words in document
+% change rb815.tex to your file name
+\newcommand\wordcount{
+\immediate\write18{texcount -inc -sum -0 -template={SUM} rb815.tex > count.txt} 
+(\input{count.txt}words)}
+
+\begin{document}
+  \maketitle
+\wordcount
+
+\section{Introduction}
+\begin{linenumbers}
+
+
+this is the introduction
+
+
+
+Line 1
+\cite{CitationName}
+
+Line 2
+
+\end{linenumbers}
+
+\section{Methods}
+\begin{linenumbers}
+
+
+this is the methods
+
+minimize makes the value as smalla s possible
+
+
+
+Schoolfield model:
+\begin{equation}
+B = \frac {B_{0}e^ \frac{-E}{k} ( \frac{1}{T} - {1}{283.15})}{1+e^ \frac{E_{h}}{k}(\frac{1}{T_{h}}- \frac{1}{T})}
+\end{equation}
+
+\end{linenumbers}
+
+\section{Data}
+\begin{linenumbers}
+
+
+
+this is the data
+
+
+
+
+
+
+
+
+\end{linenumbers}
+
+\section{Results}
+\begin{linenumbers}
+
+
+results
+
+
+
+\end{linenumbers}
+
+\section{Discussion}
+\begin{linenumbers}
+
+
+discussion
+
+\end{linenumbers}
+
+\section{References}
+\begin{linenumbers}
+
+\bibliographystyle{plain}
+\bibliography{FileName} % see page 37 of SilBioComp.pdf for referencing
+
+\end{linenumbers}
+\end{document}
+
